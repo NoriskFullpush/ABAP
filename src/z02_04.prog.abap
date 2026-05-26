@@ -1,0 +1,45 @@
+*&---------------------------------------------------------------------*
+*& Report Z02_04
+*&---------------------------------------------------------------------*
+*&
+*&---------------------------------------------------------------------*
+REPORT Z02_04.
+
+DATA: GV_INT1 TYPE I VALUE 2.
+DATA: GV_INT2 TYPE I VALUE 3.
+DATA: GV_IRESULT  TYPE I.
+
+GV_IRESULT = GV_INT1 + GV_INT2.
+WRITE :/ '1: ', GV_IRESULT.
+
+ADD 1 TO GV_IRESULT.
+WRITE :/ '2: ', GV_IRESULT.
+
+
+DATA: GV_PACK1 TYPE P DECIMALS 2 VALUE '2.17'.
+DATA: GV_PACK2 TYPE P DECIMALS 2 VALUE '5.43'.
+DATA: GV_PRESULT TYPE P DECIMALS 2.
+
+GV_PRESULT = GV_PACK2 / GV_PACK2.
+WRITE :/ '3: ', GV_PRESULT.
+
+MULTIPLY GV_PRESULT BY GV_PACK2.
+WRITE :/ '4: ', GV_PRESULT.
+
+
+DATA: GV_FLOAT1 TYPE F VALUE '1.337'.
+DATA: GV_FLOAT2 TYPE F VALUE '2.7'.
+DATA: GV_FRESULT TYPE F.
+DATA: GV_CRESULT TYPE C LENGTH 16.
+
+GV_FRESULT = GV_FLOAT2 * GV_FLOAT1.
+WRITE :/ '5: ', GV_FRESULT.
+
+CALL FUNCTION 'FLTP_CHAR_CONVERSION'
+EXPORTING
+  DECIM = 2
+  INPUT = GV_FRESULT
+  IMPORTING
+    FLSTR = GV_CRESULT.
+
+WRITE :/ '6: ', GV_CRESULT.
