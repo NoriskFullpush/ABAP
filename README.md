@@ -4,5 +4,5 @@
 
 - Easy ABAP 3.0 example code
 - The scope of study is "Package & CTS ~ ALV"
-- ALL example code naemed "Zxx_xx"
+- ALL example code is named "Zxx_xx"
 - Upload using "ZABAPGIT" program
